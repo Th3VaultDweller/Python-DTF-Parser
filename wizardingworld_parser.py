@@ -1,10 +1,10 @@
 import requests
-from LxmlSoup import LxmlSoup
+from bs4 import BeautifulSoup
 
 # запрос GET на получение html-кода страницы
 html = requests.get("https://www.wizardingworld.com/discover/books").text
 
-soup = LxmlSoup(html)
+soup = BeautifulSoup(html, "lxml")
 
 # запрос GET на получение всех ссылок на книги
 links = soup.find_all("a", class_="ProductCard_link__z-ZoA")
