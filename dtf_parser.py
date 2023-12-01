@@ -8,6 +8,13 @@ html = requests.get(
 
 soup = BeautifulSoup(html, "lxml")  # lxml - самый быстрый парсер
 
+# находим все URL-ссылки на странице
+links = soup.find_all("a", href=True)
+
 # вывод всех URL-ссылок со страницы
-for a in soup.find_all('a', href=True):
-    print(f"URL: {a['href']}")
+for i, link in enumerate(links):
+    url = link.get("href")
+
+    print(f"\n")
+    print(i)
+    print(f"URL: {url}")
