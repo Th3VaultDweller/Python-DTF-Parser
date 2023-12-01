@@ -8,9 +8,6 @@ html = requests.get(
 
 soup = BeautifulSoup(html, "lxml")  # lxml - самый быстрый парсер
 
-# # запрос GET на получение всех ссылок на посты
-# links = soup.find("div", class_="content content--full")
-
 # вывод всех URL-ссылок со страницы
 for a in soup.find_all('a', href=True):
     print(f"URL: {a['href']}")
