@@ -11,6 +11,9 @@ soup = BeautifulSoup(html, "lxml")  # lxml - самый быстрый парс�
 # находим все URL-ссылки на странице
 links = soup.find_all("a", href=True)
 
+# находим все картинки на странице
+images = soup.find_all("img", src=True)
+
 # вывод всех URL-ссылок со страницы
 for i, link in enumerate(links):
     url = link.get("href")
@@ -18,3 +21,10 @@ for i, link in enumerate(links):
     print(f"\n")
     print(i)
     print(f"URL: {url}")
+
+# вывод всех источников картинок со страницы
+for i, image in enumerate(images):
+    img_src = image.get("src")
+    print(f"\n")
+    print(i)
+    print(f"Image source: {img_src}")
