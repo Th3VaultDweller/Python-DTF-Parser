@@ -54,9 +54,11 @@ print(comment_text)
 all_comment_author = soup.find_all(class_="comment__author")
 
 for author in all_comment_author:
+    [print(f"\n")]
     print(author.text.strip())
 
 all_comment_text = soup.find_all(class_="comment__text")
 
 for text in all_comment_text:
+    print(f"\n")
     print(text.text.strip())
