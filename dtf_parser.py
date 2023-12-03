@@ -44,3 +44,19 @@ for i, image in enumerate(all_img):
     print(f"\n")
     print(i)
     print(f"Image source: {img_src}")
+
+# вывод всех комментариев и их авторов
+comment_author = soup.find("a", class_="comment__author").text.strip()
+comment_text = soup.find("div", class_="comment__text").text.strip()
+print(comment_author)
+print(comment_text)
+
+all_comment_author = soup.find_all(class_="comment__author")
+
+for author in all_comment_author:
+    print(author.text.strip())
+
+all_comment_text = soup.find_all(class_="comment__text")
+
+for text in all_comment_text:
+    print(text.text.strip())
