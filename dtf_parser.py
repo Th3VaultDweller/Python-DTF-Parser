@@ -8,6 +8,11 @@ html = requests.get(
 
 soup = BeautifulSoup(html, "lxml")  # lxml - самый быстрый парсер
 
+article_title = soup.title
+article_annotation = soup.find("div", class_="content content--full").find("p").text
+print(article_title.text)
+print(article_annotation)
+
 # находим все URL-ссылки на странице
 links = soup.find_all("a", href=True)
 
