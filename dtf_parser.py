@@ -14,6 +14,14 @@ article_annotation = soup.find("div", class_="content content--full").find("p").
 print(article_title.text)
 print(article_annotation)
 
+print(f"\n")
+
+# находим кол-во комментариев, показов и открытий статьи
+views_and_opens = soup.find(class_="post-counters")  # показы и открытия
+print(views_and_opens.text.strip())
+# сomments_count = soup.find(class_="content-info content-info--full l-island-a")
+# print(сomments_count.text.strip())
+
 # находим все URL-ссылки на странице
 links = soup.find_all("a", href=True)
 
